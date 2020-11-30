@@ -1,0 +1,18 @@
+package sum_of_oddnumbers;
+
+import java.util.Scanner;
+
+public class program {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner x= new Scanner(System.in);
+		System.out.println("Enter the value of n to print n number : ");
+		int n=x.nextInt();
+		for(int i=0; i<=n; i++) 
+		{
+			System.out.print(i);
+		}
+	}
+
+}

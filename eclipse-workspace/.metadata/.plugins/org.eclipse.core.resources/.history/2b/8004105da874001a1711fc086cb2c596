@@ -1,0 +1,23 @@
+package linear_search;
+
+import java.util.Scanner;
+
+public class program {
+
+	public static void main(String[] args) {
+		int[] arr = new int[5];
+		for (int i = 0; i < 5; i++) {
+		    System.out.print("Enter a number: ");
+		    Scanner store = new Scanner(System.in);
+		    arr[i] = store.nextInt();
+		}
+		System.out.print("Displaying the numbers: ");
+		for(int j=0; j<5; j++) {
+			
+			System.out.print(arr[j]+"\t");
+		}
+
+
+	}
+
+}

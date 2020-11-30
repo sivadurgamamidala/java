@@ -1,0 +1,84 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef {
+   static int ar[] = new int[100001];
+   static int br[] = new int[100001];
+    public static void main(String[] args) throws java.lang.Exception {
+
+        Scanner s = new Scanner(System.in);
+        int t = s.nextInt();
+        while(t--> 0) {
+            int n = s.nextInt();
+            int k = s.nextInt();
+
+            for(int i = 0; i < n; i++) {
+                ar[i] = s.nextInt();
+                br[i] = ar[i];
+            }
+
+            for(int i = 0; i <= k; i++) {
+                ArrayList<Integer> v = new ArrayList<>();
+                for(int j = i; j <= n; j += k)
+                    v.add(ar[j]);
+
+                    Collections.sort(v);
+                    int idx = 0;
+
+                    for(int j = i; j <= n; j += k) {
+                        ar[j] = v.get(idx++);
+                    }
+            }
+
+            for(int i = 0; i <= k; i++) {
+                ArrayList<Integer> v = new ArrayList<>();
+                for(int j = i; j <= n; j += k)
+                    v.add(br[j]);
+
+                Collections.sort(v, comp);
+                int idx = 0;
+
+                for(int j = i; j <= n; j += k) {
+                    br[j] = v.get(idx++);
+                }
+            }
+
+            if(isSorted(n)) {
+                System.out.println("yes");
+            } else {
+                System.out.println("no");
+            }
+
+        }
+    }
+
+    private static boolean isSorted(int n) {
+        boolean flag1 = true;
+        boolean flag2 = true;
+
+        for(int i = 1; i <= n; i++) {
+            if (ar[i] < ar[i - 1]) {
+                flag1 = false;
+                break;
+            }
+        }
+            if(flag1)
+                return true;
+                
+        br[0] = Integer.MAX_VALUE;
+        for(int i = 1; i <= n; i++) {
+            if (br[i] > br[i - 1]) {
+                flag2 = false;
+                break;
+            }
+        }
+                return flag2;
+
+    }
+    
+   static boolean comp(int a , int b) {
+	return a > b;
+}
+}

@@ -1,0 +1,48 @@
+package linear_search;
+
+import java.util.Scanner;
+
+public class program {
+
+	public static void main(String[] args) {
+		int[] arr = new int[10];
+		int i=0;
+		Scanner store = new Scanner(System.in);
+		for (i = 0; i < 5; i++) {
+		    System.out.print("Enter a number: ");
+		   
+		    arr[i] = store.nextInt();
+		}
+		System.out.print("Displaying the numbers: ");
+		for(int j=0; j<5; j++) {
+			
+			System.out.print(arr[j]+"\t");
+		}
+		int first, middle, last , linear;
+		System.out.print("enter the numbers to search: ");
+		linear =store.nextInt();
+		first=0;
+		last=arr.length-1;
+		middle=(first+last)/2;
+		while(first<=last) {
+			if(arr[middle]<linear) {
+				first=middle+1;
+			}
+			else if(arr[middle]==linear) {
+				System.out.print("number you enter is found at position : "+(middle+1));
+			}
+			else
+			{
+				last=middle-1;
+			}
+			middle=(first+last)/2;
+		} 
+		if(first>last) {
+			System.out.print(linear+" number not found");
+		}
+			
+		
+		
+	}
+
+}
